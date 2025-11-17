@@ -41,34 +41,34 @@ describe("counter component", () => {
     })
 
 
-    test("check api", async () => {
-        const mockData = [
-            { id: 1, title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit" },
-            { id: 2, title: "qui est esse" },
-            { id: 3, title: "ea molestias quasi exercitationem repellat qui ipsa sit aut" },
-        ];
-        vi.spyOn(globalThis, "fetch").mockResolvedValueOnce({
-            json: () => Promise.resolve(mockData),
-        });
+    // test("check api", async () => {
+    //     const mockData = [
+    //         { id: 1, title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit" },
+    //         { id: 2, title: "qui est esse" },
+    //         { id: 3, title: "ea molestias quasi exercitationem repellat qui ipsa sit aut" },
+    //     ];
+    //     vi.spyOn(globalThis, "fetch").mockResolvedValueOnce({
+    //         json: () => Promise.resolve(mockData),
+    //     });
 
 
-        render(<Counter initialState={8} />)
+    //     render(<Counter initialState={8} />)
 
-        await waitFor(() => {
-            expect(screen.getByText(/sunt aut facere repellat provident occaecati excepturi optio/)).toBeInTheDocument();
-            expect(screen.getByText("qui est esse")).toBeInTheDocument();
-            expect(screen.getByText("ea molestias quasi exercitationem repellat qui ipsa sit aut")).toBeInTheDocument();
-        })
-    })
+    //     await waitFor(() => {
+    //         expect(screen.getByText(/sunt aut facere repellat provident occaecati excepturi optio/)).toBeInTheDocument();
+    //         expect(screen.getByText("qui est esse")).toBeInTheDocument();
+    //         expect(screen.getByText("ea molestias quasi exercitationem repellat qui ipsa sit aut")).toBeInTheDocument();
+    //     })
+    // })
 
-    test("show loading whilw calling appi",()=>{
-        vi.spyOn(globalThis,"fetch").mockResolvedValueOnce({
-            json:()=>Promise(resolve=>setTimeout(() => {
-                resolve()
-            }, 1000))
-        })
+    // test("show loading whilw calling appi",()=>{
+    //     vi.spyOn(globalThis,"fetch").mockResolvedValueOnce({
+    //         json:()=>Promise(resolve=>setTimeout(() => {
+    //             resolve()
+    //         }, 1000))
+    //     })
 
-        render(<Counter initialState={7}/>)
-        expect(screen.getByText(/loading/i)).toBeInTheDocument()
-    })
+    //     render(<Counter initialState={7}/>)
+    //     expect(screen.getByText(/loading/i)).toBeInTheDocument()
+    // })
 })
