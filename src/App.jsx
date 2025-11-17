@@ -92,12 +92,23 @@ const handleClick=async()=>{
 }
 
 
+export function Hide(){
+  const [show,setShow]=useState(false)
+  return (
+    <>
+    <button onClick={()=>setShow(!show)}>Click</button>
+    {show && <p>Greetings to lord</p>}
+    </>
+  )
+}
+
+
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-
+<Hide/>
       <Counter initialState={6} />
     </>
   )
