@@ -28,13 +28,13 @@ const [query,setQuery]=useState("")
   const handleSignChange = () => {
     setCount((prev) => prev * -1);
   };
-  // useEffect(() => {
-  //   fetch
-  //     ("https://jsonplaceholder.typicode.com/posts?_limit=3")
-  //     .then((res) => res.json())
-  //     .then((res) => setPosts(res))
-  //     .catch((err) => console.error(err));
-  // }, []);
+  useEffect(() => {
+    fetch
+      ("https://jsonplaceholder.typicode.com/posts?_limit=3")
+      .then((res) => res.json())
+      .then((res) => setPosts(res))
+      .catch((err) => console.error(err));
+  }, []);
 
 
   useEffect(()=>{
